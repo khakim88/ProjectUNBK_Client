@@ -1,0 +1,724 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title>Simulasi UNBK</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="shortcut icon" href="~/Assets/global/img/io.png" />
+
+    @Styles.Render("~/CSS/main")
+    @Styles.Render("~/CSS/components")
+    @Styles.Render("~/CSS/layout")
+
+    <style>
+        .doubt-btn {
+            height: 34px;
+            padding-top: 7px;
+        }
+    </style>
+
+    @Scripts.Render("~/Script/main")
+
+</head>
+<body class="page-container-bg-solid page-md page-header-menu-fixed">
+    <div class="page-wrapper">
+        <div class="page-wrapper-row">
+            <div class="page-wrapper-top">
+                <!-- BEGIN HEADER -->
+                <div class="page-header">
+                    <!-- BEGIN HEADER TOP -->
+                    <div class="page-header-top bg-blue-dark">
+                        <div class="container-fluid">
+                            <!-- BEGIN LOGO -->
+                            <div class="page-logo">
+                                <a href="#">
+                                    <img src="~/Assets/pages/img/logo-unbk-normal.png" alt="logo" height="50" class="logo-default mrg15T" />
+                                </a>
+                            </div>
+                            <!-- END LOGO -->
+                            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                            @*<a href="javascript:;" class="menu-toggler"></a>*@
+                            <!-- END RESPONSIVE MENU TOGGLER -->
+                            <!-- BEGIN TOP NAVIGATION MENU -->
+                            <div class="top-menu">
+                            </div>
+                            <!-- END TOP NAVIGATION MENU -->
+                        </div>
+                    </div>
+                    <!-- END HEADER TOP -->
+                    <!-- BEGIN HEADER MENU -->
+                    <div class="page-header-menu">
+                        <div class="container-fluid">
+                            <!-- BEGIN HEADER SEARCH BOX -->
+                            <!-- <form class="search-form" action="page_general_search.html" method="GET">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search" name="query">
+                                    <span class="input-group-btn">
+                                        <a href="javascript:;" class="btn submit">
+                                            <i class="icon-magnifier"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                            </form> -->
+                            <!-- END HEADER SEARCH BOX -->
+                            <!-- BEGIN MEGA MENU -->
+                            <!-- DOC: Apply "hor-menu-light" class after the "hor-menu" class below to have a horizontal menu with white background -->
+                            <!-- DOC: Remove data-hover="dropdown" and data-close-others="true" attributes below to disable the dropdown opening on mouse hover -->
+                            <div class="col-md-4 mrg0L pad0L">
+                                <div class="quest-number-container">
+                                    <span class="quest-number-header">
+                                        Soal No
+                                    </span>
+                                    <span class="font-white font-size-26 quest-number" id="quest-number">
+                                        5
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <!-- <span id="subject" class="font-white"> -->
+                                <h3 id="subject" class="font-white uppercase mrg10T">Bahasa Indonesia</h3>
+                                <!-- </span> -->
+                            </div>
+                            <div class="col-md-4 pull-right mrg0R pad0R">
+                                <div class="timer-container">
+                                    <span class="timer-header">
+                                        Sisa Waktu
+                                    </span>
+                                    <span class="font-white font-size-26 timer" id="timer">
+                                        01:15:36
+                                    </span>
+                                    <span class="timer-minimize">
+                                        <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                                            x
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- <div class="hor-menu" id="hor-menu">
+                                <ul class="nav navbar-nav">
+                                    <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown ">
+                                        <a href="#your-request">
+                                            <i class="icon-user"></i> Your Request
+                                        </a>
+                                    </li>
+                                    <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown ">
+                                        <a href="#new-request">
+                                            <i class="icon-paper-plane"></i> New Request
+                                            <span class="arrow"></span>
+                                        </a>
+                                    </li>
+                                    <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown ">
+                                        <a href="#all-items">
+                                            <i class="icon-briefcase"></i> All Items
+                                            <span class="arrow"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div> -->
+                            <!-- END MEGA MENU -->
+                        </div>
+                    </div>
+                    <!-- END HEADER MENU -->
+                </div>
+                <!-- END HEADER -->
+            </div>
+        </div>
+        <div class="page-wrapper-row full-height">
+            <div class="page-wrapper-middle">
+                <!-- BEGIN CONTAINER -->
+                <div class="page-container">
+                    <!-- BEGIN CONTENT -->
+
+                    <div class="page-content-wrapper" id="your-request">
+                        <!-- BEGIN CONTENT BODY -->
+                        <!-- BEGIN PAGE HEAD-->
+                        <!-- <div class="page-head">
+                            <div class="container-fluid">
+                                <div class="page-title">
+                                    <h1>Your Merchandise Request </h1>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- END PAGE HEAD-->
+                        <!-- BEGIN PAGE CONTENT BODY -->
+                        <div class="page-content">
+                            <div class="container-fluid">
+                                <!-- BEGIN PAGE BREADCRUMBS -->
+                                <!-- <ul class="page-breadcrumb breadcrumb">
+                                    <li>
+                                        <a href="index.html">Home</a>
+                                        <i class="fa fa-circle"></i>
+                                    </li>
+                                    <li>
+                                        <span>Your Request</span>
+                                    </li>
+                                </ul> -->
+                                <!-- END PAGE BREADCRUMBS -->
+                                <!-- BEGIN PAGE CONTENT INNER -->
+                                <div class="page-content-inner">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                            <div class="portlet light ">
+                                                <div class="portlet-title">
+                                                    @*<div class="caption font-green">
+                                                        <i class="icon-briefcase font-green"></i>
+                                                        <span class="caption-subject bold uppercase"> Your Request List</span>
+                                                    </div>*@
+                                                    <div id="font-size" class="font-size">
+                                                        Ukuran Font
+                                                        <a class="normal">A</a>
+                                                        <a class="large">A</a>
+                                                        <a class="x-large">A</a>
+                                                    </div>
+                                                </div>
+                                                <div class="portlet-body form">
+                                                    <form action="" role="form">
+
+                                                        <div class="well mrg20T">
+                                                            <div class="quest_list">
+                                                                <div class="quest_numb">
+                                                                    5.
+                                                                </div>
+                                                                <div class="quest_body">
+                                                                    <p>
+                                                                        (1) Pendidikan anak usia dini sekarang tengah marak-maraknya.
+                                                                        (2) Di mana mana orang tua merasakan pentingnya mendidik anak melalui lembaga prasekolah yang ada dan mereka pun berlomba untuk
+                                                                        memberikan pelayanan pendidikan yang baik untuk anak-anak mereka.
+                                                                        (3) Tawaran berbagai macam bentuk pendidikan bermunculan mulai dari yang puluhan ribu hingga jutaan rupiah per bulannya, seperti
+                                                                        kursus yang dapat membuat otak anak cerdas dan pintar berhitung, cakap berbagai bahasa hingga fisik kuat dan sehat, kegiatan
+                                                                        menari, main musik, dan berenang.
+                                                                        (4) Dunia pendidikan saat ini betul-betul penuh dengan denyut kegairahan, penuh tawaran yang
+                                                                        menggiurkan yang terkadang menguras isi kantung orang tua.
+                                                                        (5) Begitulah orang tua membahagiakan anak-anak mereka, yaitu melalui
+                                                                        pemenuhan keinginan anak-anaknya.
+                                                                    </p>
+                                                                    <p>
+                                                                        Kalimat utama paragraf tersebut terdapat pada nomor ....
+                                                                    </p>
+                                                                    <div class="input-group col-xs-12">
+                                                                        <div class="icheck-inline mrg0T">
+                                                                            <div class="row col-md-12 option-group">
+                                                                                <label class="option-label">
+                                                                                    <span class="option-text text-center">A</span>
+                                                                                    <input type="radio" name="radio11" class="icheck" data-radio="icheckbox_flat-blue pad15L" data-label="(5)"> (5)
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="row col-md-12 option-group">
+                                                                                <label class="option-label">
+                                                                                    <span class="option-text text-center">B</span>
+                                                                                    <input type="radio" name="radio11" class="icheck" data-radio="icheckbox_flat-blue pad15L" data-label="(4)"> (4)
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="row col-md-12 option-group">
+                                                                                <label class="option-label">
+                                                                                    <span class="option-text text-center">C</span>
+                                                                                    <input type="radio" name="radio11" class="icheck" data-radio="icheckbox_flat-blue pad15L" data-label="(3)"> (3)
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="row col-md-12 option-group">
+                                                                                <label class="option-label">
+                                                                                    <span class="option-text text-center">D</span>
+                                                                                    <input type="radio" name="radio11" class="icheck" data-radio="icheckbox_flat-blue pad15L" data-label="(2)"> (2)
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="row col-md-12 option-group">
+                                                                                <label class="option-label">
+                                                                                    <span class="option-text text-center">E</span>
+                                                                                    <input type="radio" name="radio11" class="icheck" data-radio="icheckbox_flat-blue pad15L" data-label="(1)"> (1)
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-actions">
+                                                            <div class="col-md-4 pad0L pad0R">
+                                                                <button id="prev-btn" class="btn green button-submit" type="submit">
+                                                                    <i class="fa fa-chevron-left mrg5R"></i>
+                                                                    Soal Sebelumnya
+                                                                </button>
+                                                            </div>
+                                                            <div class="col-md-4 pad0L pad0R text-center">
+                                                                <!-- <button id="doubt-btn" class="btn yellow-lemon button-submit" type="submit">
+                                                                    <i class="fa fa-question mrg5R"></i>
+                                                                    Ragu-ragu
+                                                                    <i class="fa fa-question mrg5L"></i>
+                                                                </button> -->
+
+                                                                <label>
+                                                                    <input type="checkbox" class="icheck" data-checkbox="icheckbox_line-grey btn yellow-lemon font-size-14 doubt-btn" data-label="Ragu-ragu">
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-md-4 pad0L pad0R text-right">
+                                                                <button id="next-btn" class="btn green button-submit" type="submit">
+                                                                    Soal Selanjutnya
+                                                                    <i class="fa fa-chevron-right mrg5L"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <!-- END EXAMPLE TABLE PORTLET-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END PAGE CONTENT INNER -->
+                            </div>
+                        </div>
+                        <!-- END PAGE CONTENT BODY -->
+                        <!-- END CONTENT BODY -->
+                    </div>
+                    <!-- END CONTENT -->
+                </div>
+                <!-- END CONTAINER -->
+            </div>
+        </div>
+
+
+        <div class="page-footer mrg0L text-center">
+            <?= date('Y') ?> &copy; GLORA UNBK
+        </div>
+        <!-- END FOOTER -->
+
+        <nav class="quick-nav dropdown">
+            <a class="quick-nav-trigger dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+                <span aria-hidden="true"></span>
+                <!-- <i class="icon-eye"></i> -->
+            </a>
+            <div class="dropdown-menu answer-panel pull-right dropdown-custom hold-on-click">
+                <div class="row scroller" data-always-visible="1" data-rail-visible="1" style="height: 350px">
+                    <div class="container col-sm-12">
+                        <div class="item col-sm-3">
+                            <a class="done">
+                                1
+                                <div class="answer">
+                                    A
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a class="done">
+                                2
+                                <div class="answer">
+                                    B
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a class="doubt">
+                                3
+                                <div class="answer">
+                                    A
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a class="done">
+                                4
+                                <div class="answer">
+                                    C
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a class="active">
+                                5
+                                <div class="answer">
+                                    A
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                6
+                                <div class="answer">
+                                    
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                7
+                                <div class="answer">
+                                    
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                8
+                                <div class="answer">
+                                    
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                9
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                10
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                11
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                12
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                13
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                14
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                15
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                16
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                17
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                18
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                19
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                20
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                21
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                22
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                23
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                24
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                25
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                26
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                27
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                28
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                29
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                30
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                31
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                32
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                33
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                34
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                35
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                36
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                37
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                38
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                39
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item col-sm-3">
+                            <a>
+                                40
+                                <div class="answer">
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span aria-hidden="true" class="quick-nav-bg"></span>
+        </nav>
+    </div>
+</body>
+
+    @Scripts.Render("~/Script/jqueryval")
+    @Scripts.Render("~/Script/components")
+    @Scripts.Render("~/Script/layout")
+
+    <script>
+		// begin icheck
+		$('.icheck').each(function() {
+			var checkboxClass = $(this).attr('data-checkbox') ? $(this).attr('data-checkbox') : 'icheckbox_minimal-grey';
+			var radioClass = $(this).attr('data-radio') ? $(this).attr('data-radio') : 'iradio_minimal-grey';
+
+			var init = {};
+
+			if (radioClass.indexOf('_line') > -1) {
+				init["checkboxClass"] = checkboxClass;
+				init["radioClass"] = radioClass;
+				init["insert"] = '<div></div>' + $(this).attr("data-label");
+				init["checkedClass"] = "bg-green-jungle";
+			}
+			else if(checkboxClass.indexOf('_line') > -1){
+				init["checkboxClass"] = checkboxClass;
+				// alert(checkboxClass);
+				// init["insert"] = '<div class="icheck_line-icon"></div>' + $(this).attr("data-label");
+				init["insert"] = '<input type="checkbox" class="icheck_line-icon"/>' + $(this).attr("data-label");
+			} else {
+				init["checkboxClass"] = checkboxClass;
+				init["radioClass"] = radioClass;
+			}
+
+			$(this).iCheck(
+				init
+			);
+
+			setOptionOpacity(this, "");
+		});
+
+		$('.icheck').on('ifChecked ifUnchecked', function(event){
+			var checked = event.type == "ifChecked" ? "1" : "0";
+
+			setOptionOpacity(this, checked);
+		});
+
+		function setOptionOpacity(obj, checked){
+			if(checked == ""){
+				checked	= $(obj).parent('[class*="icheckbox"]').hasClass("checked");
+			}else{
+				checked = checked == "1" ? true : false;
+			}
+			// console.log(checked);
+			var span = $(obj).parents("label").find("[class*='option-text']");
+			var opacity = checked ? "0" : "1";
+			// console.log(span);
+			$(span).css("opacity", opacity);
+			// console.log(obj);
+			// console.log(checked);
+			var cb = $(obj).parents("label").find("input[type='checkbox'][class='icheck_line-icon']");
+			if(cb.length > 0){
+				$(cb).prop("checked", checked);
+			}
+		}
+		// end icheck
+        
+		$('.dropdown').on('show.bs.dropdown', function() {
+			$(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
+		});
+
+		// Add slideUp animation to Bootstrap dropdown when collapsing.
+		$('.dropdown').on('hide.bs.dropdown', function() {
+			$(this).find('.dropdown-menu').first().stop(true, true).slideUp(300);
+		});
+
+		$(document).ready(function()
+		{
+		    $("#font-size a").click(function () {
+		        var size = $(this).attr("class");
+		        var val = 14;
+
+		        switch (size) {
+		            case "large":
+		                val = 16;
+                        break;
+		            case "x-large":
+		                val = 20;
+                        break;
+		            default:
+		                val = 14;
+		                break;
+		        }
+
+		        $(".quest_list").css("font-size", val + "px");
+		    });
+		});
+    </script>
+</html>

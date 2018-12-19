@@ -1,0 +1,762 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="unbk_clientModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="group">
+          <Key>
+            <PropertyRef Name="group_id" />
+          </Key>
+          <Property Name="group_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="group_name" Type="varchar" MaxLength="30" />
+          <Property Name="group_code" Type="varchar" MaxLength="5" />
+          <Property Name="entry_by" Type="int" />
+          <Property Name="entry_date" Type="datetime" Precision="0" />
+          <Property Name="instruction" Type="text" />
+          <Property Name="question_header" Type="text" />
+          <Property Name="time" Type="int" />
+        </EntityType>
+        <EntityType Name="jadwal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_paket_soal" Type="int" />
+          <Property Name="token" Type="varchar" MaxLength="10" />
+          <Property Name="mapel" Type="varchar" MaxLength="30" />
+          <Property Name="waktu_mulai" Type="datetime" Precision="0" />
+          <Property Name="waktu_selesei" Type="datetime" Precision="0" />
+          <Property Name="tempat" Type="varchar" MaxLength="30" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="created_date" Type="datetime" Precision="0" />
+          <Property Name="modified_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" Precision="0" />
+          <Property Name="record_status" Type="enum" />
+        </EntityType>
+        <EntityType Name="jawaban">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_jadwal" Type="int" />
+          <Property Name="id_soal" Type="int" />
+          <Property Name="id_siswa" Type="int" />
+          <Property Name="jawaban" Type="int" />
+          <Property Name="benar" Type="int" />
+          <Property Name="ragu" Type="enum" />
+          <Property Name="time" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="kota">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id_provinsi" Type="int" Nullable="false" />
+          <Property Name="nama" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mata_pelajaran">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nama_mapel" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="created_by" Type="int" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="modified_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" Precision="0" />
+          <Property Name="record_status" Type="enum" Nullable="false" />
+        </EntityType>
+        <EntityType Name="page">
+          <Key>
+            <PropertyRef Name="page_id" />
+          </Key>
+          <Property Name="page_id" Type="int" Nullable="false" />
+          <Property Name="parent_id" Type="int" />
+          <Property Name="page_code" Type="varchar" MaxLength="5" />
+          <Property Name="page_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="controller" Type="varchar" MaxLength="30" />
+          <Property Name="action" Type="varchar" MaxLength="30" />
+          <Property Name="icon" Type="varchar" MaxLength="30" />
+          <Property Name="status" Type="bit" />
+        </EntityType>
+        <EntityType Name="paket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nama_paket" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="created_by" Type="int" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="modified_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" Precision="0" />
+          <Property Name="record_status" Type="enum" Nullable="false" />
+        </EntityType>
+        <EntityType Name="paket_soal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_paket" Type="int" Nullable="false" />
+          <Property Name="id_soal" Type="int" Nullable="false" />
+          <Property Name="created_by" Type="int" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="modified_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" Precision="0" />
+          <Property Name="record_status" Type="enum" Nullable="false" />
+        </EntityType>
+        <EntityType Name="privilege">
+          <Key>
+            <PropertyRef Name="privilege_id" />
+          </Key>
+          <Property Name="privilege_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="group_id" Type="int" />
+          <Property Name="page_id" Type="int" />
+          <Property Name="entry_by" Type="int" Nullable="false" />
+          <Property Name="entry_date" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="provinsi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nama" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reg_info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="key_code" Type="varchar" MaxLength="500" />
+          <Property Name="tanggal" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sekolah">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nama_sekolah" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="tingkat" Type="enum" Nullable="false" />
+          <Property Name="IP" Type="varchar" MaxLength="15" />
+          <Property Name="alamat" Type="text" />
+          <Property Name="kota" Type="int" />
+          <Property Name="provinsi" Type="int" />
+          <Property Name="no_telp" Type="varchar" MaxLength="20" />
+          <Property Name="fax" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="250" />
+          <Property Name="web" Type="varchar" MaxLength="200" />
+          <Property Name="nama_kepsek" Type="varchar" MaxLength="100" />
+          <Property Name="no_telp_kepsek" Type="varchar" MaxLength="20" />
+          <Property Name="email_kepsek" Type="varchar" MaxLength="250" />
+          <Property Name="nama_admin" Type="varchar" MaxLength="100" />
+          <Property Name="no_telp_admin" Type="varchar" MaxLength="20" />
+          <Property Name="email_admin" Type="varchar" MaxLength="250" />
+          <Property Name="status" Type="enum" Nullable="false" />
+          <Property Name="tgl_aktivasi" Type="datetime" Precision="0" />
+          <Property Name="created_by" Type="int" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="modified_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" Precision="0" />
+          <Property Name="record_status" Type="enum" Nullable="false" />
+        </EntityType>
+        <EntityType Name="siswa">
+          <Key>
+            <PropertyRef Name="nik" />
+          </Key>
+          <Property Name="nik" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="user_group_id" Type="int" Nullable="false" />
+          <Property Name="nama" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="registration_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="umur" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="soal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_mapel" Type="int" Nullable="false" />
+          <Property Name="kode_soal" Type="varchar" MaxLength="50" />
+          <Property Name="jenis_soal" Type="int" />
+          <Property Name="kelas" Type="int" Nullable="false" />
+          <Property Name="tingkat" Type="enum" Nullable="false" />
+          <Property Name="nomor_soal" Type="int" Nullable="false" />
+          <Property Name="ragu" Type="enum" Nullable="false" />
+          <Property Name="tanya" Type="mediumtext" Nullable="false" />
+          <Property Name="audio_tanya" Type="varchar" MaxLength="255" />
+          <Property Name="video_tanya" Type="varchar" MaxLength="255" />
+          <Property Name="gambar_tanya" Type="varchar" MaxLength="255" />
+          <Property Name="jawab1" Type="mediumtext" />
+          <Property Name="jawab2" Type="mediumtext" />
+          <Property Name="jawab3" Type="mediumtext" />
+          <Property Name="jawab4" Type="mediumtext" />
+          <Property Name="jawab5" Type="mediumtext" />
+          <Property Name="gambar_jawab1" Type="varchar" MaxLength="255" />
+          <Property Name="gambar_jawab2" Type="varchar" MaxLength="255" />
+          <Property Name="gambar_jawab3" Type="varchar" MaxLength="255" />
+          <Property Name="gambar_jawab4" Type="varchar" MaxLength="255" />
+          <Property Name="gambar_jawab5" Type="varchar" MaxLength="255" />
+          <Property Name="kunci_jawaban" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="created_by" Type="int" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="modified_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" Precision="0" />
+          <Property Name="record_status" Type="enum" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="password" Type="char" MaxLength="32" />
+          <Property Name="fullname" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="bit" />
+          <Property Name="created_by" Type="int" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="modified_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" Precision="0" />
+          <Property Name="record_status" Type="enum" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_group">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="unbk_clientModelStoreContainer">
+          <EntitySet Name="group" EntityType="Self.group" Schema="unbk_client" store:Type="Tables" />
+          <EntitySet Name="jadwal" EntityType="Self.jadwal" Schema="unbk_client" store:Type="Tables" />
+          <EntitySet Name="jawaban" EntityType="Self.jawaban" Schema="unbk_client" store:Type="Tables" />
+          <EntitySet Name="kota" EntityType="Self.kota" Schema="unbk_client" store:Type="Tables" />
+          <EntitySet Name="mata_pelajaran" EntityType="Self.mata_pelajaran" Schema="unbk_client" store:Type="Tables" />
+          <EntitySet Name="page" EntityType="Self.page" Schema="unbk_client" store:Type="Tables" />
+          <EntitySet Name="paket" EntityType="Self.paket" Schema="unbk_client" store:Type="Tables" />
+          <EntitySet Name="paket_soal" EntityType="Self.paket_soal" Schema="unbk_client" store:Type="Tables" />
+          <EntitySet Name="privilege" EntityType="Self.privilege" Schema="unbk_client" store:Type="Tables" />
+          <EntitySet Name="provinsi" EntityType="Self.provinsi" Schema="unbk_client" store:Type="Tables" />
+          <EntitySet Name="reg_info" EntityType="Self.reg_info" Schema="unbk_client" store:Type="Tables" />
+          <EntitySet Name="sekolah" EntityType="Self.sekolah" Schema="unbk_client" store:Type="Tables" />
+          <EntitySet Name="siswa" EntityType="Self.siswa" Schema="unbk_client" store:Type="Tables" />
+          <EntitySet Name="soal" EntityType="Self.soal" Schema="unbk_client" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="unbk_client" store:Type="Tables" />
+          <EntitySet Name="user_group" EntityType="Self.user_group" Schema="unbk_client" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="unbk_clientModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="unbk_clientEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="groups" EntityType="unbk_clientModel.group" />
+          <EntitySet Name="jadwals" EntityType="unbk_clientModel.jadwal" />
+          <EntitySet Name="jawabans" EntityType="unbk_clientModel.jawaban" />
+          <EntitySet Name="kotas" EntityType="unbk_clientModel.kota" />
+          <EntitySet Name="mata_pelajaran" EntityType="unbk_clientModel.mata_pelajaran" />
+          <EntitySet Name="pages" EntityType="unbk_clientModel.page" />
+          <EntitySet Name="pakets" EntityType="unbk_clientModel.paket" />
+          <EntitySet Name="paket_soal" EntityType="unbk_clientModel.paket_soal" />
+          <EntitySet Name="privileges" EntityType="unbk_clientModel.privilege" />
+          <EntitySet Name="provinsis" EntityType="unbk_clientModel.provinsi" />
+          <EntitySet Name="reg_info" EntityType="unbk_clientModel.reg_info" />
+          <EntitySet Name="sekolahs" EntityType="unbk_clientModel.sekolah" />
+          <EntitySet Name="soals" EntityType="unbk_clientModel.soal" />
+          <EntitySet Name="users" EntityType="unbk_clientModel.user" />
+          <EntitySet Name="user_group" EntityType="unbk_clientModel.user_group" />
+          <EntitySet Name="siswas" EntityType="unbk_clientModel.siswa" />
+        </EntityContainer>
+        <EntityType Name="group">
+          <Key>
+            <PropertyRef Name="group_id" />
+          </Key>
+          <Property Name="group_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="group_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="group_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="entry_by" Type="Int32" />
+          <Property Name="entry_date" Type="DateTime" />
+          <Property Name="instruction" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="question_header" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="time" Type="Int32" />
+        </EntityType>
+        <EntityType Name="jadwal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_paket_soal" Type="Int32" />
+          <Property Name="token" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="mapel" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="waktu_mulai" Type="DateTime" />
+          <Property Name="waktu_selesei" Type="DateTime" />
+          <Property Name="tempat" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" />
+          <Property Name="modified_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" />
+          <Property Name="record_status" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="jawaban">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_jadwal" Type="Int32" />
+          <Property Name="id_soal" Type="Int32" />
+          <Property Name="id_siswa" Type="Int32" />
+          <Property Name="jawaban1" Type="Int32" />
+          <Property Name="benar" Type="Int32" />
+          <Property Name="ragu" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <Property Name="time" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="kota">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id_provinsi" Type="Int32" Nullable="false" />
+          <Property Name="nama" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="mata_pelajaran">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama_mapel" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="created_by" Type="Int32" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" />
+          <Property Name="modified_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" />
+          <Property Name="record_status" Type="String" Nullable="false" MaxLength="65532" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="page">
+          <Key>
+            <PropertyRef Name="page_id" />
+          </Key>
+          <Property Name="page_id" Type="Int32" Nullable="false" />
+          <Property Name="parent_id" Type="Int32" />
+          <Property Name="page_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="page_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="controller" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="action" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="icon" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="paket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama_paket" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="created_by" Type="Int32" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" />
+          <Property Name="modified_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" />
+          <Property Name="record_status" Type="String" Nullable="false" MaxLength="65532" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="paket_soal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_paket" Type="Int32" Nullable="false" />
+          <Property Name="id_soal" Type="Int32" Nullable="false" />
+          <Property Name="created_by" Type="Int32" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" />
+          <Property Name="modified_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" />
+          <Property Name="record_status" Type="String" Nullable="false" MaxLength="65532" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="privilege">
+          <Key>
+            <PropertyRef Name="privilege_id" />
+          </Key>
+          <Property Name="privilege_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="group_id" Type="Int32" />
+          <Property Name="page_id" Type="Int32" />
+          <Property Name="entry_by" Type="Int32" Nullable="false" />
+          <Property Name="entry_date" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="provinsi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nama" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="reg_info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="key_code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="tanggal" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sekolah">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama_sekolah" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="tingkat" Type="String" Nullable="false" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <Property Name="IP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="alamat" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="kota" Type="Int32" />
+          <Property Name="provinsi" Type="Int32" />
+          <Property Name="no_telp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="web" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="nama_kepsek" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="no_telp_kepsek" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email_kepsek" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="nama_admin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="no_telp_admin" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email_admin" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <Property Name="tgl_aktivasi" Type="DateTime" />
+          <Property Name="created_by" Type="Int32" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" />
+          <Property Name="modified_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" />
+          <Property Name="record_status" Type="String" Nullable="false" MaxLength="65532" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="soal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_mapel" Type="Int32" Nullable="false" />
+          <Property Name="kode_soal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="jenis_soal" Type="Int32" />
+          <Property Name="kelas" Type="Int32" Nullable="false" />
+          <Property Name="tingkat" Type="String" Nullable="false" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <Property Name="nomor_soal" Type="Int32" Nullable="false" />
+          <Property Name="ragu" Type="String" Nullable="false" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <Property Name="tanya" Type="String" Nullable="false" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="audio_tanya" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="video_tanya" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="gambar_tanya" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="jawab1" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="jawab2" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="jawab3" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="jawab4" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="jawab5" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="gambar_jawab1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="gambar_jawab2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="gambar_jawab3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="gambar_jawab4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="gambar_jawab5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="kunci_jawaban" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="created_by" Type="Int32" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" />
+          <Property Name="modified_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" />
+          <Property Name="record_status" Type="String" Nullable="false" MaxLength="65532" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Boolean" />
+          <Property Name="created_by" Type="Int32" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" />
+          <Property Name="modified_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" />
+          <Property Name="record_status" Type="String" Nullable="false" MaxLength="65532" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="user_group">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="siswa">
+          <Key>
+            <PropertyRef Name="nik" />
+          </Key>
+          <Property Name="nik" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="user_group_id" Type="Int32" Nullable="false" />
+          <Property Name="nama" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="registration_date" Type="DateTime" Nullable="false" />
+          <Property Name="umur" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="unbk_clientModelStoreContainer" CdmEntityContainer="unbk_clientEntities">
+          <EntitySetMapping Name="groups">
+            <EntityTypeMapping TypeName="unbk_clientModel.group">
+              <MappingFragment StoreEntitySet="group">
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="question_header" ColumnName="question_header" />
+                <ScalarProperty Name="instruction" ColumnName="instruction" />
+                <ScalarProperty Name="entry_date" ColumnName="entry_date" />
+                <ScalarProperty Name="entry_by" ColumnName="entry_by" />
+                <ScalarProperty Name="group_code" ColumnName="group_code" />
+                <ScalarProperty Name="group_name" ColumnName="group_name" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jadwals">
+            <EntityTypeMapping TypeName="unbk_clientModel.jadwal">
+              <MappingFragment StoreEntitySet="jadwal">
+                <ScalarProperty Name="record_status" ColumnName="record_status" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="tempat" ColumnName="tempat" />
+                <ScalarProperty Name="waktu_selesei" ColumnName="waktu_selesei" />
+                <ScalarProperty Name="waktu_mulai" ColumnName="waktu_mulai" />
+                <ScalarProperty Name="mapel" ColumnName="mapel" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="id_paket_soal" ColumnName="id_paket_soal" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jawabans">
+            <EntityTypeMapping TypeName="unbk_clientModel.jawaban">
+              <MappingFragment StoreEntitySet="jawaban">
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="ragu" ColumnName="ragu" />
+                <ScalarProperty Name="benar" ColumnName="benar" />
+                <ScalarProperty Name="jawaban1" ColumnName="jawaban" />
+                <ScalarProperty Name="id_siswa" ColumnName="id_siswa" />
+                <ScalarProperty Name="id_soal" ColumnName="id_soal" />
+                <ScalarProperty Name="id_jadwal" ColumnName="id_jadwal" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kotas">
+            <EntityTypeMapping TypeName="unbk_clientModel.kota">
+              <MappingFragment StoreEntitySet="kota">
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="id_provinsi" ColumnName="id_provinsi" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mata_pelajaran">
+            <EntityTypeMapping TypeName="unbk_clientModel.mata_pelajaran">
+              <MappingFragment StoreEntitySet="mata_pelajaran">
+                <ScalarProperty Name="record_status" ColumnName="record_status" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="nama_mapel" ColumnName="nama_mapel" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pages">
+            <EntityTypeMapping TypeName="unbk_clientModel.page">
+              <MappingFragment StoreEntitySet="page">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="icon" ColumnName="icon" />
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="controller" ColumnName="controller" />
+                <ScalarProperty Name="page_name" ColumnName="page_name" />
+                <ScalarProperty Name="page_code" ColumnName="page_code" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="page_id" ColumnName="page_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pakets">
+            <EntityTypeMapping TypeName="unbk_clientModel.paket">
+              <MappingFragment StoreEntitySet="paket">
+                <ScalarProperty Name="record_status" ColumnName="record_status" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="nama_paket" ColumnName="nama_paket" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paket_soal">
+            <EntityTypeMapping TypeName="unbk_clientModel.paket_soal">
+              <MappingFragment StoreEntitySet="paket_soal">
+                <ScalarProperty Name="record_status" ColumnName="record_status" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id_soal" ColumnName="id_soal" />
+                <ScalarProperty Name="id_paket" ColumnName="id_paket" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="privileges">
+            <EntityTypeMapping TypeName="unbk_clientModel.privilege">
+              <MappingFragment StoreEntitySet="privilege">
+                <ScalarProperty Name="entry_date" ColumnName="entry_date" />
+                <ScalarProperty Name="entry_by" ColumnName="entry_by" />
+                <ScalarProperty Name="page_id" ColumnName="page_id" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="privilege_id" ColumnName="privilege_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="provinsis">
+            <EntityTypeMapping TypeName="unbk_clientModel.provinsi">
+              <MappingFragment StoreEntitySet="provinsi">
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reg_info">
+            <EntityTypeMapping TypeName="unbk_clientModel.reg_info">
+              <MappingFragment StoreEntitySet="reg_info">
+                <ScalarProperty Name="tanggal" ColumnName="tanggal" />
+                <ScalarProperty Name="key_code" ColumnName="key_code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sekolahs">
+            <EntityTypeMapping TypeName="unbk_clientModel.sekolah">
+              <MappingFragment StoreEntitySet="sekolah">
+                <ScalarProperty Name="record_status" ColumnName="record_status" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="tgl_aktivasi" ColumnName="tgl_aktivasi" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="email_admin" ColumnName="email_admin" />
+                <ScalarProperty Name="no_telp_admin" ColumnName="no_telp_admin" />
+                <ScalarProperty Name="nama_admin" ColumnName="nama_admin" />
+                <ScalarProperty Name="email_kepsek" ColumnName="email_kepsek" />
+                <ScalarProperty Name="no_telp_kepsek" ColumnName="no_telp_kepsek" />
+                <ScalarProperty Name="nama_kepsek" ColumnName="nama_kepsek" />
+                <ScalarProperty Name="web" ColumnName="web" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="no_telp" ColumnName="no_telp" />
+                <ScalarProperty Name="provinsi" ColumnName="provinsi" />
+                <ScalarProperty Name="kota" ColumnName="kota" />
+                <ScalarProperty Name="alamat" ColumnName="alamat" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="tingkat" ColumnName="tingkat" />
+                <ScalarProperty Name="nama_sekolah" ColumnName="nama_sekolah" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="soals">
+            <EntityTypeMapping TypeName="unbk_clientModel.soal">
+              <MappingFragment StoreEntitySet="soal">
+                <ScalarProperty Name="record_status" ColumnName="record_status" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="kunci_jawaban" ColumnName="kunci_jawaban" />
+                <ScalarProperty Name="gambar_jawab5" ColumnName="gambar_jawab5" />
+                <ScalarProperty Name="gambar_jawab4" ColumnName="gambar_jawab4" />
+                <ScalarProperty Name="gambar_jawab3" ColumnName="gambar_jawab3" />
+                <ScalarProperty Name="gambar_jawab2" ColumnName="gambar_jawab2" />
+                <ScalarProperty Name="gambar_jawab1" ColumnName="gambar_jawab1" />
+                <ScalarProperty Name="jawab5" ColumnName="jawab5" />
+                <ScalarProperty Name="jawab4" ColumnName="jawab4" />
+                <ScalarProperty Name="jawab3" ColumnName="jawab3" />
+                <ScalarProperty Name="jawab2" ColumnName="jawab2" />
+                <ScalarProperty Name="jawab1" ColumnName="jawab1" />
+                <ScalarProperty Name="gambar_tanya" ColumnName="gambar_tanya" />
+                <ScalarProperty Name="video_tanya" ColumnName="video_tanya" />
+                <ScalarProperty Name="audio_tanya" ColumnName="audio_tanya" />
+                <ScalarProperty Name="tanya" ColumnName="tanya" />
+                <ScalarProperty Name="ragu" ColumnName="ragu" />
+                <ScalarProperty Name="nomor_soal" ColumnName="nomor_soal" />
+                <ScalarProperty Name="tingkat" ColumnName="tingkat" />
+                <ScalarProperty Name="kelas" ColumnName="kelas" />
+                <ScalarProperty Name="jenis_soal" ColumnName="jenis_soal" />
+                <ScalarProperty Name="kode_soal" ColumnName="kode_soal" />
+                <ScalarProperty Name="id_mapel" ColumnName="id_mapel" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="unbk_clientModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="record_status" ColumnName="record_status" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_group">
+            <EntityTypeMapping TypeName="unbk_clientModel.user_group">
+              <MappingFragment StoreEntitySet="user_group">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="siswas">
+            <EntityTypeMapping TypeName="unbk_clientModel.siswa">
+              <MappingFragment StoreEntitySet="siswa">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="umur" ColumnName="umur" />
+                <ScalarProperty Name="registration_date" ColumnName="registration_date" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="user_group_id" ColumnName="user_group_id" />
+                <ScalarProperty Name="nik" ColumnName="nik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

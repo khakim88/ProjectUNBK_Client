@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="650c61d8711746379e7fa4abc6071ea6" Name="Diagram1">
+        <EntityTypeShape EntityType="unbk_clientModel.group" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="unbk_clientModel.jadwal" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="unbk_clientModel.jawaban" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="unbk_clientModel.kota" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="unbk_clientModel.mata_pelajaran" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="unbk_clientModel.page" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="unbk_clientModel.paket" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="unbk_clientModel.paket_soal" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="unbk_clientModel.privilege" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="unbk_clientModel.provinsi" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="unbk_clientModel.reg_info" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="unbk_clientModel.sekolah" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="unbk_clientModel.soal" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="unbk_clientModel.user" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="unbk_clientModel.user_group" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="unbk_clientModel.siswa" Width="1.5" PointX="3.375" PointY="11.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

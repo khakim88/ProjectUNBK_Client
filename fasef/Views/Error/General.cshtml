@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Maaf terjadi kesalahan</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="shortcut icon" href="~/Assets/global/img/io.png" />
+
+    @Styles.Render("~/CSS/main")
+
+    <link href="~/Assets/pages/css/error.min.css" rel="stylesheet" />
+</head>
+<body class="page-404-full-page">
+    <div class="row">
+        <div class="col-md-12 page-404">
+            <div class="number font-red"> <i class="icon-close"></i> </div>
+            <div class="details">
+                <h3>Oops! Maaf terjadi kesalahan</h3>
+                <p>
+                    Silakan hubungi Administrator Website.
+                    <br />
+                    <div class="input-group input-medium">
+                        <a class="btn red btn-outline" onclick="history.back(-1)"> Kembali ke laman sebelumnya </a>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

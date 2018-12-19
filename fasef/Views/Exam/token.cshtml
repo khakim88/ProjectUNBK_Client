@@ -1,0 +1,311 @@
+﻿@*<?php
+    defined('BASEPATH') OR exit('No direct script access allowed');
+
+    ?>
+
+    <!-- BEGIN HEAD -->
+    <meta charset="utf-8" />
+    <title>Simulasi UNBK - </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Preview page of Metronic Admin Theme #4 for bootstrap inputs, input groups, custom checkboxes and radio controls and more" name="description" />
+    <meta content="" name="author" />
+    <link rel="stylesheet" type="text/css" href="<?= SITE_ASSETS; ?>global/css/open-sans.css">
+
+    <link href="<?= SITE_ASSETS; ?>global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?= SITE_ASSETS; ?>global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?= SITE_ASSETS; ?>global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?= SITE_ASSETS; ?>global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="<?= SITE_ASSETS; ?>global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?= SITE_ASSETS; ?>global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="<?= SITE_ASSETS; ?>global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
+    <link href="<?= SITE_ASSETS; ?>global/plugins/icheck/skins/all.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS -->
+
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    <link href="<?= SITE_ASSETS; ?>global/css/components-rounded.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="<?= SITE_ASSETS; ?>global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?= SITE_ASSETS; ?>global/css/spacing.css" rel="stylesheet" type="text/css" />
+    <link href="<?= SITE_ASSETS; ?>global/css/utils.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    <!-- <link href="<?= SITE_ASSETS; ?>layouts/layout4/css/layout.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?= SITE_ASSETS; ?>layouts/layout4/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="<?= SITE_ASSETS; ?>layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" /> -->
+    <link href="<?= SITE_ASSETS ?>layouts/layout3/css/layout.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?= SITE_ASSETS ?>layouts/layout3/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="<?= SITE_ASSETS ?>layouts/layout3/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME LAYOUT STYLES -->
+    <link rel="shortcut icon" href="<?= SITE_ASSETS; ?>global/img/io.png" />
+
+    <!-- BEGIN CORE PLUGINS -->
+    <script src="<?= SITE_ASSETS; ?>global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="<?= SITE_ASSETS; ?>global/plugins/js.cookie.min.js" type="text/javascript"></script>
+    <script src="<?= SITE_ASSETS; ?>global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+
+    <!-- END HEAD -->*@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title>Simulasi UNBK</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="shortcut icon" href="~/Assets/global/img/io.png" />
+    @Styles.Render("~/CSS/main")
+    @Styles.Render("~/CSS/components")
+    @Styles.Render("~/CSS/layout")
+    <style>
+
+        .doubt-btn {
+            height: 34px;
+            padding-top: 7px;
+        }
+    </style>
+    @Scripts.Render("~/Script/main")
+</head>
+<body class="page-container-bg-solid page-md page-header-menu-fixed">
+    <div class="page-wrapper">
+        <div class="page-wrapper-row">
+            <div class="page-wrapper-top">
+                <!-- BEGIN HEADER -->
+                <div class="page-header">
+                    <!-- BEGIN HEADER TOP -->
+                    <div class="page-header-top bg-blue-dark">
+                        <div class="container-fluid">
+                      
+
+                            <div class="page-logo">
+                                <a href="#">
+                                    <!-- <img src="<?= SITE_ASSETS; ?>/layouts/layout4/img/logo-light.png" alt="logo" class="logo-default" />  -->
+                                    <img src="~/Assets/pages/img/logo-unbk-normal.png" alt="logo" height="50" class="logo-default mrg15T" />
+                                </a>
+                            </div>
+                            <!-- END LOGO -->
+                            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                            <a href="javascript:;" class="menu-toggler"></a>
+                            <!-- END RESPONSIVE MENU TOGGLER -->
+                            <!-- BEGIN TOP NAVIGATION MENU -->
+                            <div class="top-menu">
+                            </div>
+                            <!-- END TOP NAVIGATION MENU -->
+                        </div>
+                    </div>
+                    <!-- END HEADER TOP -->
+                    <!-- BEGIN HEADER MENU -->
+                    <div class="page-header-menu">
+                        <div class="container-fluid">
+                           
+                            <div class="col-md-4 mrg0L pad0L">
+                                <div class="quest-number-container">
+                                    <!--<span class="quest-number-header">-->
+                                    <!--	Soal No-->
+                                    <!--</span>-->
+                                    <!--<span class="font-white font-size-26 quest-number" id="quest-number">-->
+                                    <!--	5-->
+                                    <!--</span>-->
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <!-- <span id="subject" class="font-white"> -->
+                                <!--<h3 id="subject" class="font-white uppercase mrg10T">Bahasa Indonesia</h3>-->
+                                <!-- </span> -->
+                            </div>
+                            <div class="col-md-4 pull-right mrg0R pad0R">
+                                <div class="timer-container">
+                                    <!--<span class="timer-header">-->
+                                    <!--	Sisa Waktu-->
+                                    <!--</span>-->
+                                    <!--<span class="font-white font-size-26 timer" id="timer">-->
+                                    <!--	115:43-->
+                                    <!--</span>-->
+                                </div>
+                            </div>
+                            <!-- <div class="hor-menu" id="hor-menu">
+                                <ul class="nav navbar-nav">
+                                    <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown ">
+                                        <a href="#your-request">
+                                            <i class="icon-user"></i> Your Request
+                                        </a>
+                                    </li>
+                                    <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown ">
+                                        <a href="#new-request">
+                                            <i class="icon-paper-plane"></i> New Request
+                                            <span class="arrow"></span>
+                                        </a>
+                                    </li>
+                                    <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown ">
+                                        <a href="#all-items">
+                                            <i class="icon-briefcase"></i> All Items
+                                            <span class="arrow"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div> -->
+                            <!-- END MEGA MENU -->
+                        </div>
+                    </div>
+                    <!-- END HEADER MENU -->
+                </div>
+                <!-- END HEADER -->
+            </div>
+        </div>
+        <div class="page-wrapper-row full-height">
+            <div class="page-wrapper-middle">
+                <!-- BEGIN CONTAINER -->
+                <div class="page-container">
+                    <!-- BEGIN CONTENT -->
+                    <div class="page-content-wrapper" id="your-request">
+
+                        <div class="col-md-12">
+                            <div class="portlet box blue ">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-gift"></i>Konfirmasi Peserta
+                                    </div>
+
+                                </div>
+                                <div class="portlet-body form">
+                                    <!-- BEGIN FORM-->
+                                    <form action="<?= base_url('Exam/start/1') ?>" class="form-horizontal form-bordered form-label-stripped">
+                                        <div class="form-body">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">Kode NIK</label>
+                                                <div class="col-md-9">
+                                                    <span class="help-block">0001</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">Nama Peserta</label>
+                                                <div class="col-md-9">
+                                                    <span class="help-block">Mukidi</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">Jenis Kelamin</label>
+                                                <div class="col-md-9">
+
+                                                    <span class="help-block">Pria</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">Mata Ujian</label>
+                                                <div class="col-md-9">
+                                                    <span class="help-block">MTK,Bahasa Indonesia, Bahasa Inggris, dll</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">Masukkan Token</label>
+                                                <div class="col-md-3">
+                                                    <input type="text" placeholder="" class="form-control" />
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-offset-3 col-md-9">
+                                                    <button type="submit" class="btn green">
+                                                        <i class="fa fa-check"></i> Submit
+                                                    </button>
+                                                    <button type="button" class="btn default">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- END FORM-->
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- BEGIN CONTENT BODY -->
+                        <!-- BEGIN PAGE HEAD-->
+                        <!-- <div class="page-head">
+                            <div class="container-fluid">
+                                <div class="page-title">
+                                    <h1>Your Merchandise Request </h1>
+                                </div>
+                            </div>
+
+
+
+                        </div> -->
+                        <!-- END PAGE HEAD-->
+                        <!-- BEGIN PAGE CONTENT BODY -->
+                        <!-- END PAGE CONTENT BODY -->
+                        <!-- END CONTENT BODY -->
+                    </div>
+                    <!-- END CONTENT -->
+                </div>
+                <!-- END CONTAINER -->
+            </div>
+        </div>
+
+
+        @*<div class="page-footer mrg0L text-center">
+            <?= date('Y') ?> &copy; GLORA-UNBK
+        </div>*@
+        <!-- END FOOTER -->
+        <!--<nav class="quick-nav">-->
+        <!--	<a class="quick-nav-trigger" href="#0">-->
+        <!--		<span aria-hidden="true"></span>-->
+        <!--	</a>-->
+        <!--	<span aria-hidden="true" class="quick-nav-bg"></span>-->
+        <!--</nav>-->
+    </div>
+    @Scripts.Render("~/Script/jqueryval")
+    @Scripts.Render("~/Script/components")
+    @Scripts.Render("~/Script/layout")
+    @*<script src="<?= SITE_ASSETS; ?>global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="<?= SITE_ASSETS; ?>global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="<?= SITE_ASSETS; ?>global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="<?= SITE_ASSETS; ?>global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="<?= SITE_ASSETS; ?>global/scripts/datatable.js" type="text/javascript"></script>
+        <script src="<?= SITE_ASSETS; ?>global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+        <script src="<?= SITE_ASSETS; ?>global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
+        <script src="<?= SITE_ASSETS; ?>global/plugins/bootstrap-sweetalert/sweetalert.min.js" type="text/javascript"></script>
+        <!-- <script src="<?= SITE_ASSETS; ?>global/plugins/bootstrap-summernote/summernote.min.js" type="text/javascript"></script>
+        <script src="<?= SITE_ASSETS; ?>global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript" >-->
+        </script>
+        <!-- <script src="<?= SITE_ASSETS; ?>global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script> -->
+        <!-- <script src="<?= SITE_ASSETS; ?>global/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script> -->
+        <!-- <script src="<?= SITE_ASSETS; ?>global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+        -->
+        <!-- <script src="<?= SITE_ASSETS; ?>global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js" type="text/javascript"></script> -->
+        <!-- <script src="<?= SITE_ASSETS; ?>global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script> -->
+        <!-- <script src="<?= SITE_ASSETS; ?>global/plugins/jquery-repeater/jquery.repeater.js" type="text/javascript"></script> -->
+        <!-- <script src="<?= SITE_ASSETS; ?>global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js" type="text/javascript"></script> -->
+        <!-- <script src="<?= SITE_ASSETS; ?>global/plugins/jquery-rating/jquery.barrating.min.js" type="text/javascript"></script> -->
+        <script src="<?= SITE_ASSETS; ?>global/plugins/icheck/icheck.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="<?= SITE_ASSETS; ?>global/scripts/app.js" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <!-- END THEME LAYOUT SCRIPTS -->
+        <!--[if lt IE 9]>
+        <script src="<?= SITE_ASSETS; ?>global/plugins/respond.min.js"></script>
+        <script src="<?= SITE_ASSETS; ?>global/plugins/excanvas.min.js"></script>
+        <script src="<?= SITE_ASSETS; ?>global/plugins/ie8.fix.min.js"></script>
+        <![endif]-->
+        <script src="<?= SITE_ASSETS; ?>global/scripts/general.js" type="text/javascript"></script>
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="<?= SITE_ASSETS ?>layouts/layout3/scripts/layout.min.js" type="text/javascript"></script>
+        <script src="<?= SITE_ASSETS ?>layouts/layout3/scripts/demo.min.js" type="text/javascript"></script>
+        <!-- <script src="<?= SITE_ASSETS ?>layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script> -->
+        <!-- <script src="<?= SITE_ASSETS ?>layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script> -->
+        <!-- END THEME LAYOUT SCRIPTS -->*@
+
+</body>
+</html>
